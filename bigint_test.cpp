@@ -10,18 +10,18 @@ TEST (TestsPart1, Sign) {
     EXPECT_EQ(BigInteger(-3).Sign(), -1);
 }
 
-//TEST(TestsPart1, FromString) {
-//    EXPECT_EQ(big_num_arithmetic::BigInteger::FromString("-0", 10),
-//              BigInteger(0));
-//    EXPECT_EQ(big_num_arithmetic::BigInteger::FromString("10", 2), BigInteger(2));
-//    EXPECT_EQ(big_num_arithmetic::BigInteger::FromString("-10", 2),
-//              BigInteger(-2));
-//    EXPECT_EQ(big_num_arithmetic::BigInteger::FromString("ff", 16),
-//              BigInteger(255));
-//    EXPECT_EQ(big_num_arithmetic::BigInteger::FromString("-ff", 32),
-//              BigInteger(-495));
-//    EXPECT_EQ(big_num_arithmetic::BigInteger::FromString("0", 36), BigInteger());
-//}
+TEST(TestsPart1, FromString) {
+    EXPECT_EQ(big_num_arithmetic::BigInteger::FromString("-0", 10),
+              BigInteger(0));
+    EXPECT_EQ(big_num_arithmetic::BigInteger::FromString("10", 2), BigInteger(2));
+    EXPECT_EQ(big_num_arithmetic::BigInteger::FromString("-10", 2),
+              BigInteger(-2));
+    EXPECT_EQ(big_num_arithmetic::BigInteger::FromString("ff", 16),
+              BigInteger(255));
+    EXPECT_EQ(big_num_arithmetic::BigInteger::FromString("-ff", 32),
+              BigInteger(-495));
+    EXPECT_EQ(big_num_arithmetic::BigInteger::FromString("0", 36), BigInteger());
+}
 
 TEST(TestsPart1, ToString) {
     EXPECT_EQ(BigInteger(10).ToString(10), "10");
@@ -392,9 +392,9 @@ TEST(TestsPart1, DivisionBigNumbers) {
               BigInteger(-10));
     EXPECT_EQ((BigInteger(-12389) / BigInteger(-1)),
               BigInteger(12389));
-//    EXPECT_EQ((BigInteger::FromString("6980968409385345343049", 10)
-//               / BigInteger::FromString("432943243224243", 10)),
-//              (BigInteger::FromString("16124442", 10)));
+    EXPECT_EQ((BigInteger::FromString("6980968409385345343049", 10)
+               / BigInteger::FromString("432943243224243", 10)),
+              (BigInteger::FromString("16124442", 10)));
     EXPECT_EQ(BigInteger(-524329) / BigInteger(79941),
               BigInteger(-6));
 }
@@ -486,33 +486,33 @@ TEST(TestsPart1, Decrement) {
     EXPECT_EQ(number, BigInteger(-1));
 }
 
-//TEST(TestsPart1, Exceptions) {
-//    EXPECT_THROW(big_num_arithmetic::BigInteger::FromString("asd", 11),
-//                 std::runtime_error);
-//    EXPECT_THROW(big_num_arithmetic::BigInteger::FromString("1111 ", 11),
-//                 std::runtime_error);
-//    EXPECT_THROW(big_num_arithmetic::BigInteger::FromString("!1142 ", 11),
-//                 std::runtime_error);
-//    EXPECT_THROW(big_num_arithmetic::BigInteger::FromString("a1-45", 17),
-//                 std::runtime_error);
-//    EXPECT_THROW(big_num_arithmetic::BigInteger::FromString("aaa4b5yxz", 17),
-//                 std::runtime_error);
-//
-//    EXPECT_THROW(BigInteger(65264).big_num_arithmetic::BigInteger::ToString(1),
-//                 std::logic_error);
-//    EXPECT_THROW(BigInteger(65264).big_num_arithmetic::BigInteger::ToString(0),
-//                 std::logic_error);
-//    EXPECT_THROW(BigInteger(-65264).big_num_arithmetic::BigInteger::ToString(37),
-//                 std::logic_error);
-//    EXPECT_THROW(BigInteger(-65264).big_num_arithmetic
-//    ::BigInteger::ToString(4424),
-//                 std::logic_error);
-//    EXPECT_THROW(BigInteger(-6564).big_num_arithmetic::BigInteger::ToString(-992),
-//                 std::logic_error);
-//
-//    EXPECT_THROW(BigInteger(-656) / BigInteger(0),
-//                 big_num_arithmetic::DivisionByZeroError);
-//    EXPECT_THROW(BigInteger(-656) / 0, big_num_arithmetic::DivisionByZeroError);
-//    EXPECT_THROW(BigInteger(534556) % 0, big_num_arithmetic::DivisionByZeroError);
-//}
+TEST(TestsPart1, Exceptions) {
+    EXPECT_THROW(big_num_arithmetic::BigInteger::FromString("asd", 11),
+                 std::runtime_error);
+    EXPECT_THROW(big_num_arithmetic::BigInteger::FromString("1111 ", 11),
+                 std::runtime_error);
+    EXPECT_THROW(big_num_arithmetic::BigInteger::FromString("!1142 ", 11),
+                 std::runtime_error);
+    EXPECT_THROW(big_num_arithmetic::BigInteger::FromString("a1-45", 17),
+                 std::runtime_error);
+    EXPECT_THROW(big_num_arithmetic::BigInteger::FromString("aaa4b5yxz", 17),
+                 std::runtime_error);
+
+    EXPECT_THROW(BigInteger(65264).big_num_arithmetic::BigInteger::ToString(1),
+                 std::logic_error);
+    EXPECT_THROW(BigInteger(65264).big_num_arithmetic::BigInteger::ToString(0),
+                 std::logic_error);
+    EXPECT_THROW(BigInteger(-65264).big_num_arithmetic::BigInteger::ToString(37),
+                 std::logic_error);
+    EXPECT_THROW(BigInteger(-65264).big_num_arithmetic
+    ::BigInteger::ToString(4424),
+                 std::logic_error);
+    EXPECT_THROW(BigInteger(-6564).big_num_arithmetic::BigInteger::ToString(-992),
+                 std::logic_error);
+
+    EXPECT_THROW(BigInteger(-656) / BigInteger(0),
+                 big_num_arithmetic::DivisionByZeroError);
+    EXPECT_THROW(BigInteger(-656) / 0, big_num_arithmetic::DivisionByZeroError);
+    EXPECT_THROW(BigInteger(534556) % 0, big_num_arithmetic::DivisionByZeroError);
+}
 
